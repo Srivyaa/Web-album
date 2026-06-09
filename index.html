@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Album</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- File Input Section -->
+        <div id="uploadSection" class="upload-section">
+            <div class="upload-container">
+                <h1>Web Album</h1>
+                <p>Select images to view in fullscreen</p>
+                <input 
+                    type="file" 
+                    id="imageInput" 
+                    multiple 
+                    accept="image/*"
+                    class="file-input"
+                >
+                <label for="imageInput" class="upload-button">
+                    Choose Images
+                </label>
+                <div id="imageCount" class="image-count"></div>
+            </div>
+        </div>
+
+        <!-- Fullscreen Gallery Section -->
+        <div id="gallerySection" class="gallery-section hidden">
+            <div class="gallery-container">
+                <!-- Image Display -->
+                <div class="image-wrapper">
+                    <img id="currentImage" src="" alt="Gallery Image" class="gallery-image">
+                    <div class="image-counter">
+                        <span id="imageNumber">1</span> / <span id="totalImages">1</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <button id="prevBtn" class="nav-button prev-button" title="Previous">
+                    <span>&larr;</span>
+                </button>
+                <button id="nextBtn" class="nav-button next-button" title="Next">
+                    <span>&rarr;</span>
+                </button>
+
+                <!-- Bottom Controls -->
+                <div class="controls-bar">
+                    <button id="backBtn" class="control-button back-button" title="Back to Upload">
+                        <span>✕</span>
+                    </button>
+                    <div class="thumbnail-strip">
+                        <div id="thumbnailContainer" class="thumbnail-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
