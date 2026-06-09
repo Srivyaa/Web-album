@@ -7,57 +7,45 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <!-- File Input Section -->
-        <div id="uploadSection" class="upload-section">
-            <div class="upload-container">
-                <h1>Web Album</h1>
-                <p>Select images to view in fullscreen</p>
-                <input 
-                    type="file" 
-                    id="imageInput" 
-                    multiple 
-                    accept="image/*"
-                    class="file-input"
-                >
-                <label for="imageInput" class="upload-button">
-                    Choose Images
-                </label>
-                <div id="imageCount" class="image-count"></div>
-            </div>
+    <!-- Album Grid View -->
+    <div id="gridView" class="container">
+        <div class="header">
+            <h1>My Album</h1>
+            <button class="btn-upload" id="btnUpload">+ Upload</button>
         </div>
-
-        <!-- Fullscreen Gallery Section -->
-        <div id="gallerySection" class="gallery-section hidden">
-            <div class="gallery-container">
-                <!-- Image Display -->
-                <div class="image-wrapper">
-                    <img id="currentImage" src="" alt="Gallery Image" class="gallery-image">
-                    <div class="image-counter">
-                        <span id="imageNumber">1</span> / <span id="totalImages">1</span>
-                    </div>
-                </div>
-
-                <!-- Navigation Controls -->
-                <button id="prevBtn" class="nav-button prev-button" title="Previous">
-                    <span>&larr;</span>
-                </button>
-                <button id="nextBtn" class="nav-button next-button" title="Next">
-                    <span>&rarr;</span>
-                </button>
-
-                <!-- Bottom Controls -->
-                <div class="controls-bar">
-                    <button id="backBtn" class="control-button back-button" title="Back to Upload">
-                        <span>✕</span>
-                    </button>
-                    <div class="thumbnail-strip">
-                        <div id="thumbnailContainer" class="thumbnail-container"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="album-grid" id="albumGrid">
+            <!-- Images will be dynamically loaded here -->
         </div>
     </div>
+
+    <!-- Full Screen Photo Viewer -->
+    <div id="photoViewer" class="photo-viewer hidden">
+        <div class="viewer-header">
+            <button class="btn-back" id="btnBack">← Back</button>
+            <span class="photo-counter"><span id="currentPhoto">1</span> / <span id="totalPhotos">0</span></span>
+        </div>
+        
+        <div class="viewer-container">
+            <div class="photo-wrapper">
+                <img id="mainPhoto" class="main-photo" src="" alt="Photo">
+            </div>
+        </div>
+
+        <div class="viewer-controls">
+            <button class="btn-nav btn-prev" id="btnPrev">‹</button>
+            <button class="btn-nav btn-next" id="btnNext">›</button>
+            <button class="btn-action" id="btnShare" title="Share">↗</button>
+            <button class="btn-action" id="btnDownload" title="Download">⬇</button>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div class="thumbnail-strip" id="thumbnailStrip">
+            <!-- Thumbnails will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Hidden file input for uploads -->
+    <input type="file" id="fileInput" accept="image/*" multiple style="display: none;">
 
     <script src="script.js"></script>
 </body>
